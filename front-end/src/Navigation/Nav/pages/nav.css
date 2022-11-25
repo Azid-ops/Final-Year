@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+.logo
+{
+    width:7vw;
+    margin-left: 1rem;
+    margin-top:1rem
+}
+
+.outerNav
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.innerDiv
+{
+    position: relative;
+}
+
+.innerDiv > h1
+{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    position: absolute;
+    top:41%
+}
+
+.outerNavigation
+{
+    display: flex;
+    margin: auto;
+    margin-left: 6rem;
+}
+
+.outerNavigation_again
+{
+    display: flex;
+    margin: auto;
+    margin-left: 6rem;
+    padding-left: 5rem;
+}
+
+.outerNavigation > div
+{
+    padding: 1rem;
+    margin-left: 0.1rem;
+}
+
+
+.navLinks
+{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.logoText
+{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.signinDiv
+{
+    display: flex;
+    margin:auto;
+    background-color: #2a6592;
+    padding:0.4rem 1rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.Red
+{
+    color:red;
+}
+
+.Green
+{
+    color: green;
+}
