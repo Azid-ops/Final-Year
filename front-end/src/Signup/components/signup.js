@@ -30,7 +30,7 @@ const Login = () => {
         event.preventDefault();
 
         const {institutionName,institutionEmail,institutionLocation,role} = User;
-        
+
         const Frispy = await fetch("/register/registerSchool", {
             method:"POST",
             headers:{
@@ -48,7 +48,7 @@ const Login = () => {
 
         else
         {
-            setFrispyStatus(true);
+            setFrispyStatus(false);
         }
     }
 
