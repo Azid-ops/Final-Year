@@ -43,7 +43,9 @@ Router.post("/register/registerSchool", (req,res,next)=> {
             if(!userExist)
             {
                 register.save().then(result=>{
-                    console.log(result);
+                    res.send(200).json({
+                        message:"Successfully Signed Up"
+                    });
                 }).catch(err=>{
                     console.log(err);
                 });
@@ -72,8 +74,8 @@ Router.post("/register/registerSchool", (req,res,next)=> {
                             }).catch(err=>{
                                 console.log(err);
                             });
-                            res.status(200).json({
-                                message:"Your can access this website"
+                            res.status(201).json({
+                                message:"Your IP is active"
                             });
                         }
                     })
@@ -90,36 +92,36 @@ Router.post("/register/registerSchool", (req,res,next)=> {
     
     else
     {
-        registerCollege.findOne({institutionEmail}).then(userExist=>{
-            if(!userExist)
+        registerCollege.findOne({institutionEmail}).then(doesExist=>{
+            if(!doesExist)
             {
-                    collegeRegister.save().then(result=>{
-                        console.log(result);
-                    }).catch(err=>{
-                        console.log(err);
-                    });
+                collegeRegister.save().then(myRes=>{
+                    console.log(myRes);
+                }).catch(err=>{
+                    console.log(err);
+                });
             }
             else
             {
-                if(userExist.ipExist === false)
+                if(doesExist.ipExist === false)
                 {
-                    registerCollege.findOneAndUpdate({institutionEmail}).then(answer=>{
-                        if(answer.warning > 3)
+                    registerCollege.findOneAndUpdate({institutionEmail}).then(final=>{
+                        if(final.warning > 3)
                         {
-                            answer.ipExist = true;
-                            answer.ip = myIP;
-                            answer.save().then(goto => {
-                                console.log(goto);
+                            final.ipExist = true;
+                            final.ip = myIP;
+                            final.save().then(gas => {
+                                console.log(gas);
                             }).catch(err=>{
                                 console.log(err);
                             });
                         }
                         else
                         {
-                            answer.warning = answer.warning + 1;
+                            final.warning = final.warning + 1;
                             //Updating Document
-                            answer.save().then(result=>{
-                                console.log(result);
+                            final.save().then(sheet=>{
+                                console.log(sheet);
                             }).catch(err=>{
                                 console.log(err);
                             });

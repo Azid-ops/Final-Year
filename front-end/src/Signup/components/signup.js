@@ -1,11 +1,16 @@
 //Importing Packages
 import React, { useRef,useEffect, useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 //Importing Files
 import LoginPage from "../pages/signup";
 
 
 const Login = () => {
+
+    const Navigation = new useNavigate();
+
     const [User,setUser] = useState({
         institutionName:"",
         institutionEmail:"",
@@ -31,25 +36,67 @@ const Login = () => {
 
         const {institutionName,institutionEmail,institutionLocation,role} = User;
 
-        const Frispy = await fetch("/register/registerSchool", {
-            method:"POST",
-            headers:{
-                "Content-Type": "application/json"
-            },
-            body:JSON.stringify({
-                institutionName,institutionEmail,institutionLocation,role
-            })
-        })
-
-        if(Frispy.status === 401)
+        if(role === "School")
         {
-            setFrispyStatus(true);
+            const Frispy = await fetch("/register/registerSchool", {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    institutionName,institutionEmail,institutionLocation,role
+                })
+            })
+
+            if(Frispy.status === 401)
+            {
+                setFrispyStatus(true);
+            }
+
+            else
+            {
+                setFrispyStatus(false);
+                if(Frispy.status === 200)
+                {
+                    Navigation("/validation", {
+                        mail:{
+                            institutionEmail
+                        }
+                    })
+                }
+            }
         }
 
         else
         {
-            setFrispyStatus(false);
+            const Frispy = await fetch("/register/registerCollege", {
+                method:"POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    institutionName,institutionEmail,institutionLocation,role
+                })
+            })
+            if(Frispy.status === 401)
+            {
+                setFrispyStatus(true);
+            }
+
+            else
+            {
+                setFrispyStatus(false);
+                if(Frispy.status === 200)
+                {
+                    Navigation("/validation", {
+                        mail:{
+                            institutionEmail
+                        }
+                    })
+                }
+            }
         }
+
     }
 
     useEffect(()=>{
