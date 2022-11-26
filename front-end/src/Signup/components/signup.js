@@ -2,14 +2,15 @@
 import React, { useRef,useEffect, useState } from "react";
 
 //Importing Files
-import LoginPage from "../pages/login";
+import LoginPage from "../pages/signup";
 
 
 const Login = () => {
     const [User,setUser] = useState({
         institutionName:"",
         institutionEmail:"",
-        institutionLocation:""
+        institutionLocation:"",
+        role:"College"
     });
 
     const [checkEmail,setEmail] = useState(false);
@@ -28,15 +29,15 @@ const Login = () => {
     const registerSchool = async (event) => {
         event.preventDefault();
 
-        const {institutionName,institutionEmail,institutionLocation} = User;
-
+        const {institutionName,institutionEmail,institutionLocation,role} = User;
+        
         const Frispy = await fetch("/register/registerSchool", {
             method:"POST",
             headers:{
                 "Content-Type": "application/json"
             },
             body:JSON.stringify({
-                institutionName,institutionEmail,institutionLocation
+                institutionName,institutionEmail,institutionLocation,role
             })
         })
 

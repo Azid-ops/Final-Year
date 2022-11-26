@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const registerSchool = new Schema({
+const registerCollege = new Schema({
     institutionName:{
         type:String,
         required:true
@@ -34,4 +34,4 @@ const registerSchool = new Schema({
         required:true
     }
 });
-module.exports = mongoose.model("registerSchool", registerSchool);
+module.exports = mongoose.model("registerCollege", registerCollege);

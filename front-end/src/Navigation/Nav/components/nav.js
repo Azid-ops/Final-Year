@@ -15,7 +15,7 @@ const Nav = () => {
 
     const signIn = (event) => {
         event.preventDefault();
-        Navigate("/login");
+        Navigate("/signup");
     }
 
     return(

@@ -11,7 +11,7 @@ import Aux from "../../Auxiliary/auxiliary";
 import Google from './images/google.png';
 
 //Importing Css
-import './login.css';
+import './signup.css';
 
 
 const LoginPage = (props) => {
@@ -46,6 +46,17 @@ const LoginPage = (props) => {
                                 onChange={props.changeHandler} 
                                 ref={props.inputRef}
                             />
+                        </span>
+
+                        <span>
+                            <select 
+                                className="form__input" 
+                                name="role"
+                                onChange={props.changeHandler}
+                            >
+                                <option value="College">College</option>
+                                <option value="School">School</option>
+                            </select>
                         </span>
                         
 

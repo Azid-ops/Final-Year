@@ -9,7 +9,7 @@ import
 
 //Importing Files
 import Home from '../Home/components/home';
-import Login from '../Login/components/login';
+import Signup from '../Signup/components/signup';
 
 const App = () => {
 
@@ -21,7 +21,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />}/>
-          <Route path="/login" element={<Login />}/>
+          <Route path="/signup" element={<Signup />}/>
         </Routes>
       </Router>
     </div>
