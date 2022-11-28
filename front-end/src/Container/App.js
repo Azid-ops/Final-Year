@@ -10,6 +10,7 @@ import
 //Importing Files
 import Home from '../Home/components/home';
 import Signup from '../Signup/components/signup';
+import EmailValidation from '../Email/Authentication/components/email';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/signup" element={<Signup />}/>
+          <Route path="/validation" element={<EmailValidation />}/>
         </Routes>
       </Router>
     </div>

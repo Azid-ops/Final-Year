@@ -43,7 +43,7 @@ Router.post("/register/registerSchool", (req,res,next)=> {
             if(!userExist)
             {
                 register.save().then(result=>{
-                    res.send(200).json({
+                    res.status(200).json({
                         message:"Successfully Signed Up"
                     });
                 }).catch(err=>{

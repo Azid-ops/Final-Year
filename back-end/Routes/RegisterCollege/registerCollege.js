@@ -35,7 +35,7 @@ Router.post("/register/registerCollege", (req,res,next)=> {
         if(!doesExist)
         {
             collegeRegister.save().then(myRes=>{
-                res.send(200).json({
+                res.status(200).json({
                     message:"Successfully Signed Up"
                 });
             }).catch(err=>{

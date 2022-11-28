@@ -1,0 +1,19 @@
+.emailVerify
+{
+    width:100vw;
+    height: 100vh;
+}
+
+.outerSection
+{
+    margin: auto;
+    position: relative;
+}
+
+.outerSection > h1 {
+    position:absolute;
+    top:3rem;
+    left:32rem;
+    text-align: center;
+    color:rgb(119, 98, 98)
+}
